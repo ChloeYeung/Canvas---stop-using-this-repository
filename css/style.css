@@ -16,3 +16,17 @@ body {
 #canvas-container {
   height: 720px;
 }
+
+
+/* creates a circle */
+.createCircle{
+  height: 25px;
+  width: 25px;
+  background-color: #bbb;
+  border-radius: 50%;
+}
+
+.box {
+  border-radius: 15px;
+  background-color: rgba(0, 181, 204, 1);
+}
