@@ -26,6 +26,17 @@ body {
   border-radius: 50%;
 }
 
+
+.createTriangle{
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 10px 17.3px 10px;
+  border-color: transparent transparent #8f99a3 transparent;
+}
+
+
+
 .box {
   border-radius: 15px;
   background-color: rgba(0, 181, 204, 1);
