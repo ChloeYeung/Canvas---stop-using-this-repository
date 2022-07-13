@@ -1,10 +1,14 @@
 .canvas {
-  border: 1px black dotted;
+  border: 4px black dotted;
   position: absolute;
-  top: 0px;
+  /* top: 80px;
   bottom: 0px;
-  left: 0px;
-  right: 0px;
+  left: 600px;
+  right: 0px; */
+  align-items: center;
+  background-color: white;
+  background-repeat: no-repeat;
+  
 }
 
 #canvas-draft {
@@ -14,7 +18,9 @@ body {
   overflow: hidden;
 }
 #canvas-container {
-  height: 720px;
+  height: 50vh;
+  width: 100%;
+  
 }
 
 
