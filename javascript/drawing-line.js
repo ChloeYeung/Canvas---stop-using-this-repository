@@ -8,37 +8,54 @@ class DrawingLine extends PaintFunction {
   // This class extends the PaintFunction class
   // You are only passing one instance here
 
-  constructor(contextReal) {
+  constructor( contextReal) {
     super();
-    this.context = contextReal;
+    this.org_x;
+    this.org_y;
+    this.options = {
+      stroke_color: ['00', '00', '00'],
+      dim: 4
+    }
+
+
+    this.contextReal = contextReal;
+    this.contextReal.strokeColor = this.options.stroke_color;
+    this.drawing = false;
   }
+
 
   // On mouse down, ensure that the pen has these features
   onMouseDown(coord, event) {
     // Fill in the color
-    this.context.strokeStyle = "#df4b26";
+    this.contextReal.strokeStyle = "#df4b26";
     // Kind of line
-    this.context.lineJoin = "round";
+    this.contextReal.lineJoin = "round";
     // Width of line
-    this.context.lineWidth = 5;
+    this.contextReal.lineWidth = 5;
     // Drawing the line here
-    this.context.beginPath();
-    this.context.moveTo(coord[0], coord[1]);
+    this.contextReal.beginPath();
+    this.contextReal.moveTo(coord[0], coord[1]);
+    history.saveState(canvasReal);
+    this.drawing = true;
   }
   // Clicking and removing your mouse
   onDragging(coord, event) {
-    this.draw(coord[0], coord[1]);
-  }
+    if (this.drawing) {
+      var x = coord[0];
+      var y = coord[1];
 
-  onMouseMove() {}
-  onMouseUp() {}
-  onMouseLeave() {}
-  onMouseEnter() {}
 
-  draw(x, y) {
-    //
-    this.context.lineTo(x, y);
-    // Draw the line onto the page
-    this.context.stroke();
+      this.contextReal.lineTo(x, y);
+      this.contextReal.stroke();
+    }
   }
+  stop = function (evt) {
+    if (this.drawing) this.drawing = false;
+  };
+  onMouseMove() { }
+  onMouseUp() { }
+  onMouseLeave() { }
+  onMouseEnter() { }
+
+
 }
