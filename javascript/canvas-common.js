@@ -8,7 +8,23 @@ let contextReal = canvasReal.getContext("2d");
 let canvasDraft = document.getElementById("canvas-draft");
 let contextDraft = canvasDraft.getContext("2d");
 let currentFunction;
+
 let dragging = false;
+//Fill Color Section
+let fillColor = "red";
+function change_color(element) {
+  fillColor = element.style.background;
+}
+//Fill Color but with the spectrum input
+function change_color_by_spectrum() {
+  fillColor = $("#colorFill").val();
+}
+
+let blue = "blue";
+let red = "red";
+let grey = "grey";
+//End of Fill Color
+
 
 $("#canvas-draft").mousedown(function (e) {
   let mouseX = e.offsetX;
